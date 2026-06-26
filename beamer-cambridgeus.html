@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beamer – CambridgeUS Theme</title>
+
+<!-- MathJax -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+<!-- CambridgeUS theme -->
+<link rel="stylesheet" href="theme/cambridgeus.css">
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<div id="nav">
+  <button id="prev-btn" onclick="changeSlide(-1)" disabled>◀ Prev</button>
+  <span id="slide-counter">1 / 6</span>
+  <button id="next-btn" onclick="changeSlide(1)">Next ▶</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 1 – Title
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap active" data-slide="1">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <!-- Simple stylised "C" shield as stand-in logo -->
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z"
+              fill="none" stroke="#C9A227" stroke-width="1.5"/>
+        <text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text>
+      </svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics<br>Mathematical Tripos</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill current">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Conclusion</span>
+  </div>
+
+  <div class="slide-body title-body">
+    <div class="main-title">Fourier Analysis &amp; Its Applications<br>to Partial Differential Equations</div>
+    <div class="subtitle">A Modern Perspective with CambridgeUS Beamer Theme</div>
+    <div class="author">Dr. Alice Thornton</div>
+    <div class="affiliation">Department of Applied Mathematics &amp; Theoretical Physics<br>University of Cambridge</div>
+    <div class="date">June 2026</div>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">1 / 6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 2 – Itemize + math
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap" data-slide="2">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z" fill="none" stroke="#C9A227" stroke-width="1.5"/><text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text></svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill current">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Conclusion</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="frametitle">Motivation</div>
+    <p>Many problems in mathematical physics reduce to understanding solutions of the form:</p>
+    \[
+      u(x,t) = \sum_{n=-\infty}^{\infty} \hat{u}_n(t)\, e^{inx}
+    \]
+    <p>Key questions we will address:</p>
+    <ul class="itemize">
+      <li>Under what conditions does the Fourier series <span class="alert">converge</span>?</li>
+      <li>How do derivatives interact with the Fourier transform: $\widehat{u'} = i\xi\,\hat{u}$?</li>
+      <li>Can we characterise smoothness via decay of $|\hat{u}(\xi)|$ as $|\xi|\to\infty$?</li>
+      <li>What is the Sobolev regularity of a given PDE's solution?</li>
+    </ul>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">2 / 6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 3 – Theorem + Definition blocks
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap" data-slide="3">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z" fill="none" stroke="#C9A227" stroke-width="1.5"/><text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text></svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill current">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Conclusion</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="frametitle">Core Results</div>
+
+    <div class="block definition">
+      <div class="block-header">Definition (Fourier Transform)</div>
+      <div class="block-body">
+        For $f \in L^1(\mathbb{R})$, the <em>Fourier transform</em> is defined by
+        \[
+          \hat{f}(\xi) = \int_{-\infty}^{\infty} f(x)\,e^{-2\pi i \xi x}\,dx, \quad \xi \in \mathbb{R}.
+        \]
+      </div>
+    </div>
+
+    <div class="block theorem">
+      <div class="block-header">Theorem (Plancherel)</div>
+      <div class="block-body">
+        If $f \in L^1(\mathbb{R}) \cap L^2(\mathbb{R})$, then $\hat{f}\in L^2(\mathbb{R})$ and
+        \[
+          \|f\|_{L^2} = \|\hat{f}\|_{L^2}.
+        \]
+        The Fourier transform extends to a <em>unitary isomorphism</em> on $L^2(\mathbb{R})$.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">3 / 6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 4 – Example block + alert
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap" data-slide="4">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z" fill="none" stroke="#C9A227" stroke-width="1.5"/><text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text></svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill current">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Conclusion</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="frametitle">Heat Equation via Fourier Transform</div>
+
+    <p>Consider the initial value problem on $\mathbb{R}$:</p>
+    \[
+      \partial_t u = \Delta u, \quad u(x,0) = f(x).
+    \]
+
+    <div class="block example">
+      <div class="block-header">Example (Gaussian kernel)</div>
+      <div class="block-body">
+        Taking the Fourier transform in $x$ yields $\partial_t \hat{u} = -4\pi^2|\xi|^2 \hat{u}$,
+        so $\hat{u}(\xi,t) = e^{-4\pi^2|\xi|^2 t}\hat{f}(\xi)$.
+        Inverting: $u = K_t * f$ where
+        \[K_t(x) = \frac{1}{(4\pi t)^{n/2}}\exp\!\left(-\frac{|x|^2}{4t}\right).\]
+      </div>
+    </div>
+
+    <div class="block alert-block">
+      <div class="block-header">⚠ Remark</div>
+      <div class="block-body">
+        The solution is <span class="alert">instantly smooth</span> for $t>0$, even if $f$ is only in $L^2$.
+        This is the <em>smoothing effect</em> of the heat operator.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">4 / 6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 5 – Two-column layout
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap" data-slide="5">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z" fill="none" stroke="#C9A227" stroke-width="1.5"/><text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text></svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill current">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Conclusion</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="frametitle">Sobolev Spaces &amp; Regularity</div>
+    <div class="columns">
+      <div class="col">
+        <div class="block definition">
+          <div class="block-header">Definition ($H^s$ space)</div>
+          <div class="block-body">
+            For $s\ge 0$, the Sobolev space $H^s(\mathbb{R}^n)$ is:
+            \[
+              H^s = \bigl\{f\in L^2 : \langle\xi\rangle^s\hat{f}\in L^2\bigr\}
+            \]
+            where $\langle\xi\rangle = (1+|\xi|^2)^{1/2}$.
+          </div>
+        </div>
+        <p style="font-size:13px">The index $s$ measures <em>fractional smoothness</em>: $f\in H^s$ iff $f$ has $s$ derivatives in $L^2$.</p>
+      </div>
+      <div class="col">
+        <div class="block theorem">
+          <div class="block-header">Sobolev Embedding</div>
+          <div class="block-body">
+            If $s > n/2 + k$, then
+            \[H^s(\mathbb{R}^n)\hookrightarrow C^k(\mathbb{R}^n).\]
+          </div>
+        </div>
+        <ul class="itemize" style="margin-top:8px">
+          <li>$n=1$: $H^1 \hookrightarrow C^0$ (continuous functions)</li>
+          <li>$n=3$: need $s>3/2$ for continuity</li>
+          <li>Key tool for PDE well-posedness</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">5 / 6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     SLIDE 6 – Conclusion
+════════════════════════════════════════════════════════ -->
+<div class="slide-wrap" data-slide="6">
+  <div class="slide-header">
+    <div class="inst-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 6 L24 16 C24 22 14 26 14 26 C14 26 4 22 4 16 L4 6 Z" fill="none" stroke="#C9A227" stroke-width="1.5"/><text x="9" y="19" font-family="serif" font-size="13" fill="#C9A227" font-weight="bold">C</text></svg>
+      <span class="inst-name">University of Cambridge</span>
+    </div>
+    <div class="header-right">Dept. of Applied Mathematics</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="section-bar">
+    <span class="section-pill">Introduction</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Main Results</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill">Applications</span>
+    <span class="section-sep">›</span>
+    <span class="section-pill current">Conclusion</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="frametitle">Summary &amp; Outlook</div>
+
+    <ul class="itemize">
+      <li>The Fourier transform diagonalises constant-coefficient differential operators.</li>
+      <li>Plancherel's theorem makes $L^2$ the natural setting for PDE analysis.</li>
+      <li>Sobolev spaces $H^s$ quantify regularity and enable embedding theorems.</li>
+      <li>The heat kernel $K_t$ illustrates <span class="alert">infinite-speed smoothing</span>.</li>
+    </ul>
+
+    <div class="block example">
+      <div class="block-header">Open Problems</div>
+      <div class="block-body">
+        <ul class="itemize sub" style="margin:0">
+          <li>Regularity of Navier-Stokes solutions — Millennium Prize Problem.</li>
+          <li>Unique continuation for Schrödinger operators.</li>
+          <li>Sparse Fourier algorithms for high-dimensional PDEs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:auto; text-align:center; font-size:13px; color:#666">
+      <strong>Thank you.</strong> &ensp;|&ensp; thornton@dpmms.cam.ac.uk
+    </p>
+  </div>
+
+  <div class="slide-footer">
+    <span>A. Thornton — Fourier Analysis</span>
+    <span>Cambridge, June 2026</span>
+    <span class="page-num">6 / 6</span>
+  </div>
+</div>
+
+<!-- CambridgeUS theme navigation -->
+<script src="theme/nav.js"></script>
+</body>
+</html>
