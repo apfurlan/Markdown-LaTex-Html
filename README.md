@@ -181,19 +181,19 @@ Embedding theorem.
 
 ## Themes
 
-| Theme | Style |
-|---|---|
-| `cambridgeus` | Dark red + gold |
-| `berlin` | Dark navy + blue |
-| `copenhagen` | Royal blue + gold tabs |
-| `frankfurt` | Black + red, progress dots |
-| `singapore` | Teal + amber |
-| `darmstadt` | Steel blue + silver |
-| `boadilla` | Soft blue, rounded |
-| `madrid` | Brick red + tan |
-| `warsaw` | Deep navy, full-width title band |
-| `annarbor` | Michigan blue + maize |
-| `pittsburgh` | Black + bright gold |
+| | Theme | Style |
+|---|---|---|
+| ![annarbor](docs/screenshots/annarbor.png) | `annarbor` | Michigan blue + maize |
+| ![berlin](docs/screenshots/berlin.png) | `berlin` | Dark navy + blue |
+| ![boadilla](docs/screenshots/boadilla.png) | `boadilla` | Soft blue, rounded |
+| ![cambridgeus](docs/screenshots/cambridgeus.png) | `cambridgeus` | Dark red + gold |
+| ![copenhagen](docs/screenshots/copenhagen.png) | `copenhagen` | Royal blue + gold tabs |
+| ![darmstadt](docs/screenshots/darmstadt.png) | `darmstadt` | Steel blue + silver |
+| ![frankfurt](docs/screenshots/frankfurt.png) | `frankfurt` | Black + red, progress dots |
+| ![madrid](docs/screenshots/madrid.png) | `madrid` | Brick red + tan |
+| ![pittsburgh](docs/screenshots/pittsburgh.png) | `pittsburgh` | Black + bright gold |
+| ![singapore](docs/screenshots/singapore.png) | `singapore` | Teal + amber |
+| ![warsaw](docs/screenshots/warsaw.png) | `warsaw` | Deep navy, full-width title band |
 
 ### Adding a new theme
 
