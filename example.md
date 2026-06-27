@@ -14,8 +14,10 @@ venue: "Cambridge, June 2026"
 # ── Institution branding ──────────────────────────────────────────────────────
 institution: "University of Cambridge"
 department: "Dept. of Applied Mathematics"
-logo_text: "C"
-logo_color: "#C9A227"
+logo: "kubernetes.png"
+
+# ── Theme ────────────────────────────────────────────────────────────────────
+theme: "madrid"
 
 # ── Section order in the navigation bar ──────────────────────────────────────
 sections:
@@ -126,5 +128,7 @@ $$H^s(\mathbb{R}^n)\hookrightarrow C^k(\mathbb{R}^n).$$
 - Unique continuation for Schrödinger operators.
 - Sparse Fourier algorithms for high-dimensional PDEs.
 :::
+
+![Big Data](big_data.png){width=60%}
 
 **Thank you.** | thornton@dpmms.cam.ac.uk

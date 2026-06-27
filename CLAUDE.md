@@ -60,6 +60,7 @@ institution: "Nome da Universidade"
 department: "Departamento"
 logo_text: "C"                    # letra no ícone SVG
 logo_color: "#C9A227"             # cor do ícone SVG
+theme: "warsaw"                   # tema padrão (pode ser sobrescrito por --theme na CLI)
 sections:
   - Introdução
   - Resultados

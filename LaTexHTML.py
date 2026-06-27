@@ -38,6 +38,18 @@ def render_inline(text: str) -> str:
     """Apply inline Markdown transforms, leaving math delimiters untouched."""
     # [text]{.alert}  →  <span class="alert">text</span>
     text = re.sub(r'\[([^\]]+)\]\{\.alert\}', r'<span class="alert">\1</span>', text)
+    # ![alt](src){width=X%}  →  <img … style="width:X%">
+    text = re.sub(
+        r'!\[([^\]]*)\]\(([^)]+)\)\{width=(\d+%?)\}',
+        r'<img src="\2" alt="\1" class="slide-img" style="width:\3">',
+        text,
+    )
+    # ![alt](src)  →  <img …>
+    text = re.sub(
+        r'!\[([^\]]*)\]\(([^)]+)\)',
+        r'<img src="\2" alt="\1" class="slide-img">',
+        text,
+    )
     # **bold**
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     # *italic*  (not inside **)
@@ -279,7 +291,11 @@ def render_slide(slide: dict, sections: list, meta: dict, idx: int, total: int) 
     logo_color = meta.get('logo_color', '#C9A227')
     logo_text  = meta.get('logo_text', inst[:1])
 
-    logo_svg = _SHIELD_SVG.format(color=logo_color, letter=logo_text)
+    logo_path = meta.get('logo')
+    if logo_path:
+        logo_svg = f'<img src="{logo_path}" alt="logo" class="inst-logo-img">'
+    else:
+        logo_svg = _SHIELD_SVG.format(color=logo_color, letter=logo_text)
 
     # Section bar
     cur_sec = slide['section']
@@ -363,6 +379,7 @@ def build_html(meta: dict, slides: list, sections: list, theme: str) -> str:
   }};
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="theme/base.css">
 <link rel="stylesheet" href="theme/{theme}.css">
 </head>
 <body>
@@ -390,8 +407,8 @@ def main():
     )
     ap.add_argument('--input',  '-i', required=True, metavar='FILE',
                     help='Source Markdown file (.md)')
-    ap.add_argument('--theme',  '-t', default='cambridgeus', metavar='NAME',
-                    help='Theme name — must match theme/<name>.css (default: cambridgeus)')
+    ap.add_argument('--theme',  '-t', default=None, metavar='NAME',
+                    help='Theme name — must match theme/<name>.css (overrides frontmatter; default: cambridgeus)')
     ap.add_argument('--output', '-o', default=None, metavar='FILE',
                     help='Output HTML file (default: same name as input, .html extension)')
     args = ap.parse_args()
@@ -400,25 +417,29 @@ def main():
     if not src.exists():
         sys.exit(f"Error: input file not found: {src}")
 
+    text = src.read_text(encoding='utf-8')
+    meta, body = parse_frontmatter(text)
+
+    # Theme priority: CLI flag > frontmatter > default
+    theme = args.theme or meta.get('theme', 'cambridgeus')
+
     dst = Path(args.output) if args.output else src.with_suffix('.html')
-    theme_css = Path(__file__).parent / 'theme' / f'{args.theme}.css'
+    theme_css = Path(__file__).parent / 'theme' / f'{theme}.css'
     if not theme_css.exists():
         available = sorted(p.stem for p in (Path(__file__).parent / 'theme').glob('*.css'))
         sys.exit(
-            f"Error: theme '{args.theme}' not found.\n"
+            f"Error: theme '{theme}' not found.\n"
             f"Available themes: {', '.join(available)}"
         )
 
-    text = src.read_text(encoding='utf-8')
-    meta, body = parse_frontmatter(text)
     slides, sections = parse_body(body, meta.get('sections', []))
 
     if not slides:
         sys.exit("Error: no slides found. Use '## Slide Title' to define slides.")
 
-    html = build_html(meta, slides, sections, args.theme)
+    html = build_html(meta, slides, sections, theme)
     dst.write_text(html, encoding='utf-8')
-    print(f"✓  {dst}  ({len(slides)} slides, theme: {args.theme})")
+    print(f"✓  {dst}  ({len(slides)} slides, theme: {theme})")
 
 
 if __name__ == '__main__':
